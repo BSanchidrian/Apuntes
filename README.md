@@ -2,4 +2,4 @@
 
 ## Sistemas distribuidos
 
-[Tema 3](https://github.com/S7KYuuki/Apuntes/Tema3.md)
+[Tema 3](https://github.com/S7KYuuki/Apuntes/blob/master/Tema3.md)
