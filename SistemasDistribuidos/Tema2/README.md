@@ -49,7 +49,9 @@ opcionalmente se puede hacer un broadcast. send/recv (MPI). Se envia el mensaje 
 **Broker de objetos**: cuando un cliente necesita un servicio manda una peticion y este actua como directorio de servicios de forma que pone al cliente en contacto con el objeto adecuado.
 
 - Pueden ser
+
   - Fiable - garantizan la entrega, control de errores, etc. (like TCP)
-  - # No fiable - no garantiza la entra, el orden, etc. pero reduce la latencia y complejidad (like UDP)
+  - No fiable - no garantiza la entra, el orden, etc. pero reduce la latencia y complejidad (like UDP)
+
   - Bloqueante - si bloquea la funcion hasta que se envie el mensaje
   - No bloqueante - ^ si no bloquea
