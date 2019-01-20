@@ -34,3 +34,23 @@ La computacion grid permite el acceso a recursos computacionales geograficamente
 ## Arquitectura del grid
 
 **Recursos + middleware = Infraestructura grid**
+
+- Distintos tipos de middleware:
+  - Grid fabric (SGE, Condor)
+  - Core grid middleware (Unicore)
+  - User level grid middleware (OGSA)
+  - Grid portals (GridSphere)
+- Estandar **The Globus Toolkit**
+
+## The globus toolkit (Core grid middleware)
+
+- Considerado el estandar de la tecnologia grid
+- Open source
+- Ampliamente utilizado
+- Interfaces y protocolos que posibilitan el acceso a recursos remotos
+- Librerias monitorizacion, gestion ficheros, seguridad
+- Basado en **OGSA**
+  **OGSA (Open Grid Services Architecture)**
+
+**Broker**: Intermediario encargado de buscar, identificar, evaluar, asignar, etc. los recursos del grid  
+**GridFTP**: Transferencia segura de datos en el entorno de un grid. Extiende el protocolo FTP.
