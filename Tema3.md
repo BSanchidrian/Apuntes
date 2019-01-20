@@ -85,5 +85,6 @@ int main(int argc, char **argv)
 
 **Compilacion**: `mpicc <fichero fuente mpi> <flags> -o <nombre 
 ejecutable>`
+
 **Ejecucion**: `mpirun -np <numero procesos> <nombre programa & 
 argumentos>`
