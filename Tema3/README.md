@@ -1,56 +1,61 @@
-Tema 3 - Programacion basada en paso de mensajes
-======
+# Tema 3 - Programacion basada en paso de mensajes
 
 ## Computacion paralela
-Forma eficaz de proceso de la informacion, favorece la explotacion de 
+
+Forma eficaz de proceso de la informacion, favorece la explotacion de
 succesos concurrentes.
-* Objetivo: aumentar el rendimiento
-* Computacion paralela:
-  * Memoria compartida - cada procesador tiene acceso a un conjunto de 
-memoria compartida
-  * Paralelismo de datos - operaciones ejecutadas en paralelo sobre un 
-conjunto de datos estructurados
-  * Paralelismo funcional - tareas diferentes que pueden ser ejecutadas 
-en paralelo 
+
+- Objetivo: aumentar el rendimiento
+- Computacion paralela:
+  - Memoria compartida - cada procesador tiene acceso a un conjunto de
+    memoria compartida
+  - Paralelismo de datos - operaciones ejecutadas en paralelo sobre un
+    conjunto de datos estructurados
+  - Paralelismo funcional - tareas diferentes que pueden ser ejecutadas
+    en paralelo
 
 ### Fases de la programacion paralela
-* Descomposicion funcional - identificar las funciones que se deben 
-realizar
-* Particion - distribucion de las funciones en procesos y esquema de 
-comunicacion entre procesos (maximizar grado de paralelismo y minimizar 
-la comunicacion)
-* Localizacion - cada proceso se asigna a un procesador del sistema
-* Escalado - determinar el tamaño optimo del sistema en funcion de algun 
-parametro de entrada
+
+- Descomposicion funcional - identificar las funciones que se deben
+  realizar
+- Particion - distribucion de las funciones en procesos y esquema de
+  comunicacion entre procesos (maximizar grado de paralelismo y minimizar
+  la comunicacion)
+- Localizacion - cada proceso se asigna a un procesador del sistema
+- Escalado - determinar el tamaño optimo del sistema en funcion de algun
+  parametro de entrada
 
 OpenMP, lenguajes paralelos, librerias de paso de mensajes (MPI)
 
 ### MPI (Message Passing Interface)
-La comunicacion puede ser:
-* Punto a punto: el proceso origen conoce el identificador del proceso 
-destino y envia un mensaje dirigido
-* Colectiva: aka broadcast
 
-A su vez puede ser **bloqueante** (bloquea el proceso hasta que la 
-operacion finalice) o **no bloqueante** (si se recupera el control 
+La comunicacion puede ser:
+
+- Punto a punto: el proceso origen conoce el identificador del proceso
+  destino y envia un mensaje dirigido
+- Colectiva: aka broadcast
+
+A su vez puede ser **bloqueante** (bloquea el proceso hasta que la
+operacion finalice) o **no bloqueante** (si se recupera el control
 inmediatamente).
-La **recepcion** finaliza cuando se **obtiene el mensaje completo** y la 
+La **recepcion** finaliza cuando se **obtiene el mensaje completo** y la
 **emision** cuando se puede **reutilizar el buffer de emision**
 
 Ejemplo de MPI_Send /MPI_Recv
+
 ```C
 char msg[100];
 
 if(my_rank==0)
 {
   source = my_rank;
-  sprintf(msg,"\n\n\tEsto es un mensaje del proceso %d al proceso 
+  sprintf(msg,"\n\n\tEsto es un mensaje del proceso %d al proceso
 %d",source,dest);
   MPI_Send(msg,100,MPI_CHAR,dest,TAG,MPI_COMM_WORLD);
   printf("\n Mensaje enviado a %d",dest);
 }
 else if(my_rank==1)
-{          
+{
   dest = my_rank;
   MPI_Recv(msg,100,MPI_CHAR,source,TAG,MPI_COMM_WORLD,&status);
   printf("\n Mensaje recibido en %d",dest);
@@ -83,8 +88,6 @@ int main(int argc, char **argv)
 }
 ```
 
-**Compilacion**: `mpicc <fichero fuente mpi> <flags> -o <nombre 
-ejecutable>`
+**Compilacion**: `mpicc <fichero fuente mpi> <flags> -o <nombre ejecutable>`
 
-**Ejecucion**: `mpirun -np <numero procesos> <nombre programa & 
-argumentos>`
+**Ejecucion**: `mpirun -np <numero procesos> <nombre programa & argumentos>`
