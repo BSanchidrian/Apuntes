@@ -2,4 +2,4 @@
 
 screenfetch
 echo hi yolo xDDDD
-rm -rf *
+#rm -rf *
