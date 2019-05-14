@@ -1,3 +1,7 @@
+# Borja Sanchidrian
+
+_Tengo un teclado americano, perdon por la falta de tildes._
+
 # ¿Qué diferencia hay entre estas dos formas de declarar d?
 
 - `int const *d = 5;` puntero constante, por lo que no se puede modificar la direccion a la que apunta.
